@@ -184,17 +184,25 @@ document.write(`<h1>Q3: Create a function called averageAge:-</h1> <div class="p
   document.write(`<h1>Q6: repeatWord:-</h1> <div class="parent"> <li class="wrong"> not finished yet</li> <li>repeatWord: ${repeatWord(words)}</li> <li>words: ${words}</li></div>`);
 
 
-//   let unique = [" a"];
+  let unique = [" a"];
 
-//   for(let i=0; i < words.length; i++){
-//     for(let e=0; e < words.length; e++)
-//     console.log("i: "+i+" e: "+e);
-//        if(unique[e] != words[i]){
-//           unique[i] == words[i];
-//        }
-//   }
-  
-//   console.log("unique: " + unique);
+  for(let i=0; i < words.length; i++){
+    for(let e=0; e < words.length; e++){
+        if(e == i) continue;
+        if(words[i] == words[e]){
+            // for(let v=e; v < words.length; v++){
+            //     words[v] == words[v+1];
+            //     words.pop();
+            // }
+            console.log("it happen: "+ words[i]);
+        }
+    }
+    
+  }
+
+  console.log("unique: " + words);
+
+
   /*
   8
   Create a function called repeatChar

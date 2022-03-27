@@ -253,8 +253,7 @@ function sumArray_while(x){
 }
 
 
-document.write(`<h1>Q13: Create a function called sumArray:-</h1> <div class="parent"> <li>sumArray_for(nums):- &nbsp; ${nums} => ${sumArray_for(nums)}</li> </div>`);
-
+document.write(`<h1>Q13: Create a function called sumArray:-</h1> <div class="parent"> <li>sumArray_for(nums):- &nbsp; ${nums} => ${sumArray_for(nums)}</li> <li>sumArray_while(nums):- &nbsp; ${nums} => ${sumArray_while(nums)}</li></div>`);
 
 
 // 14
@@ -296,7 +295,7 @@ function minInArray_while(x){
     }
 }
 
-document.write(`<h1>Q14: Create a function called minInArray:-</h1> <div class="parent"> <li>minInArray_for(nums):- &nbsp; ${nums} => ${minInArray_for(nums)}</li> </div>`);
+document.write(`<h1>Q14: Create a function called minInArray:-</h1> <div class="parent"> <li>minInArray_for(nums):- &nbsp; ${nums} => ${minInArray_for(nums)}</li> <li>minInArray_while(nums):- &nbsp; ${nums} => ${minInArray_while(nums)}</li></div>`);
 
 
 
@@ -326,23 +325,25 @@ function removeFromArray_for(x, y){
     return x;
 }
 
-document.write(`<h1>Q15: Create a function called removeFromArray:-</h1> <div class="parent"> <li>removeFromArray_for(nums,8):- &nbsp; ${nums} => ${removeFromArray_for(nums,8)}</li> </div>`);
 
+function removeFromArray_while(x, y){
+    let i=0;
+    while( i < x.length ){
+        if(x[i] == y){
+            for(let v=i; v < x.length-1; v++){
+                x[v] = x[v+1];
+            }
 
-// function removeFromArray_while(x, y){
-//     while( i < x.length; i++){
-//         if(x[i] == y){
-//             for(let v=i; v < x.length-1; v++){
-//                 x[v] = x[v+1];
-//             }
+            x.pop();
+        }
 
-//             x.pop();
-//         }
-//     }
+        i++;
+    }
 
-//     return x;
-// }
+    return x;
+}
 
+document.write(`<h1>Q15: Create a function called removeFromArray:-</h1> <div class="parent"> <li>removeFromArray_for(nums,8):- &nbsp; ${nums} => ${removeFromArray_for(nums,8)}</li> <li>removeFromArray_while(nums,8):- &nbsp; ${nums} => ${removeFromArray_while(nums,8)}</li></div>`);
 
 
 
@@ -358,51 +359,165 @@ var nums1= [1,2,3,8,9]
 // **try more cases by your self
 
 
-
-/*
-17
-Create a function called aveArray
-that accept an array
-and return the average of the numbers inside this array
-
-var nums= [1,2,3,8,9]
-Ex: aveArray(nums) => 4.6
-
-var nums2= [1,2,3,8,9,77]
-Ex: aveArray(nums) => 16.6
-
-** solve it one time using for loop and another using while loop
-**try more cases by your self
-*/
+function oddArray_for(x){
+    let array=[];
+    for (let i=0;i<x.length;i++){
+        if(x[i]%2!==0){
+            array.push(x[i]);
+        }
+    }
+    return array;
+}
 
 
-/*
-18
-Create a function called shorterInArray
-that accept an array of strings
-and return the shortest string inside this array (first)
+function oddArray_while(x){
+    let array=[];
+    let i=0;
+    while(i<x.length){
+        if(x[i]%2!==0){
+            array.push(x[i]);
+        }
+        i++;
+    }
+    return array;
+}
+
+document.write(`<h1>Q16: Create a function called oddArray:-</h1> <div class="parent"> <li>oddArray_for(x):- &nbsp; ${nums} => ${oddArray_for(nums)}</li> <li>oddArray_while(x):- &nbsp; ${nums} => ${oddArray_while(nums)}</li></div>`);
+
+
+
+
+// 17
+// Create a function called aveArray
+// that accept an array
+// and return the average of the numbers inside this array
+
+var nums11= [1,2,3,8,9];
+// Ex: aveArray(nums) => 4.6
+
+var nums22 = [1,2,3,8,9,77];
+// Ex: aveArray(nums) => 16.6
+
+// ** solve it one time using for loop and another using while loop
+// **try more cases by your self
+
+
+
+function aveArray_for(x){
+    let sum=0;
+    for(let i=0;i<x.length;i++){
+        sum=sum+x[i];
+    }
+    return sum/(x.length);
+}
+
+
+function aveArray_while(x){
+    let sum=0;
+    let i=0;
+    while(i<x.length){
+        sum=sum+x[i];
+        i++;
+    }
+    return sum/(x.length);
+}
+
+document.write(`<h1>Q17: Create a function called aveArray:-</h1> <div class="parent"> <li>aveArray_for(nums11):- &nbsp; ${nums11} => ${aveArray_for(nums11)}</li> <li>aveArray_while(nums11):- &nbsp; ${nums11} => ${aveArray_while(nums11)}</li></div>`);
+
+
+
+// 18
+// Create a function called shorterInArray
+// that accept an array of strings
+// and return the shortest string inside this array (first)
 
 var strings= ["alex","mercer","madrasa","rashed2","emad","hala"]
-Ex: shorterInArray(strings) => "alex"
+// Ex: shorterInArray(strings) => "alex"
 
-** solve it one time using for loop and another using while loop
-**try more cases by your self
-*/
+// ** solve it one time using for loop and another using while loop
+// **try more cases by your self
 
 
-/*
-19
-Create a function called repeatChar
-that accept a string and char
-and return the times that this char repeat inside this string
+
+function shorterInArray_for(x) {
+    let a = Infinity; 
+    let b = ""; 
+
+    if (x.length > 0) {
+        for (let i = 0; i < x.length; i++) {
+            if ( x[i].length < a) {
+                b = x[i];
+                a = x[i].length; 
+            }
+        }
+    }
+    return b;
+}
+
+
+function shorterInArray_while(x){
+    let a= Infinity;
+    let b="";
+    let i=0;
+    if(x.length>0){
+        while ( i < x.length){
+            if ( x[i].length < a) {
+                b = x[i];
+                a = x[i].length; 
+            }
+         i++;
+        }
+    }
+    return b;
+}
+
+document.write(`<h1>Q18: Create a function called shorterInArray:-</h1> <div class="parent"> <li>shorterInArray_for(strings):- &nbsp;  ${shorterInArray_for(strings)}</li> <li>shorterInArray_whilestrings):- &nbsp;  ${shorterInArray_while(strings)}</li></div>`);
+
+
+
+
+// 19
+// Create a function called repeatChar
+// that accept a string and char
+// and return the times that this char repeat inside this string
 
 var string= "alex mercer madrasa rashed2 emad hala"
-Ex: repeatChar(string,"a") => 6
-Ex: repeatChar(string,"z") => 0
+// Ex: repeatChar(string,"a") => 6
+// Ex: repeatChar(string,"z") => 0
 
-** solve it one time using for loop and another using while loop
-**try more cases by your self
-*/
+// ** solve it one time using for loop and another using while loop
+// **try more cases by your self
+
+
+function repeatChar_for(x,b){
+    x.split();
+    let sum = 0;
+
+    for(let i=0; i<x.length;++i){
+       if(x[i] == b){
+           sum = sum + 1;
+       } 
+    }
+    return sum;
+};
+
+
+function repeatChar_while(x,b){
+    x.split();
+    let sum = 0;
+
+    let i = 0;
+    while(i<x.length){
+        if (x[i] == b){
+            sum = sum + 1;
+        }
+        i++;
+    }
+    return sum;
+}
+
+document.write(`<h1>Q19: Create a function called repeatChar:-</h1> <div class="parent"> <li>repeatChar_for(string, "a"):- &nbsp; ${repeatChar_for(string, "a")}</li> <li>repeatChar_while(string, "a"):- &nbsp; ${repeatChar_while(string, "a")}</li></div>`);
+
 
 
 /*
@@ -419,35 +534,112 @@ Ex: evenIndexOddLength(strings) => ["madrasa"]
 */
 
 
-/*
+
+
+
+function evenIndexOddLength_for(x){
+    let array=[];
+    for(let i=0; i<x.length;i++){
+    if(x[i].length%2 !=0){
+        array.push(x[i]);
+    }
+  }
+  return array;
+}
+
+
+function evenIndexOddLength_while(x){
+    let array=[];
+    let i=0;
+    while(i<x.length){
+        if(x[i].length%2 !=0){
+            array.push(x[i]);
+        }
+        i++
+    }
+    return array;
+}
+
+document.write(`<h1>Q20: Create a function called evenIndexOddLength:-</h1> <div class="parent"> <li>evenIndexOddLength_for(strings):- &nbsp;  ${evenIndexOddLength_for(strings)}</li> <li>evenIndexOddLength_while(strings):- &nbsp;  ${evenIndexOddLength_while(strings)}</li></div>`);
 
 
 
 
 
-21
-Create a function called powerElementIndex
-that accept an array of number
-and return a new array that have the elemnt power by the index of it self
+// 21
+// Create a function called powerElementIndex
+// that accept an array of number
+// and return a new array that have the elemnt power by the index of it self
 
 var nums= [44, 5, 4, 3, 2, 10]
-Ex: powerElementIndex(nums) => [0, 5, 16, 27, 16, 100000]
+// Ex: powerElementIndex(nums) => [0, 5, 16, 27, 16, 100000]
 
-** solve it one time using for loop and another using while loop
-**try more cases by your self
-*/
+// ** solve it one time using for loop and another using while loop
+// **try more cases by your self
 
 
-/*
-22
-Create a function called evenNumberEvenIndex
-that accept an array of nums
-and return a new array that have the even number in even index
+function powerElementIndex_for(x) {
+    let array=[];
+    let index;
+    for(let i=0;i<x.length;i++){
+        index=Math.pow(x[i],i);
+        array.push(index);
+    }
+    return array;
+}
+
+
+function powerElementIndex_while(x){
+    let array=[];
+    let index;
+    let i=0;
+    while(i<x.length){
+        index=Math.pow(x[i],i);
+        array.push(index);
+        i++;
+    }
+    return array;
+}
+
+document.write(`<h1>Q21: Create a function called powerElementIndex:-</h1> <div class="parent"> <li>powerElementIndex_for(numsx):- &nbsp;  ${powerElementIndex_for(nums)}</li> <li>powerElementIndex_while(numsx):- &nbsp;  ${powerElementIndex_while(nums)}</li></div>`);
+
+
+
+
+// 22
+// Create a function called evenNumberEvenIndex
+// that accept an array of nums
+// and return a new array that have the even number in even index
 
 var nums= [5,2,2,1,8,66,55,77,34,9,55,1]
-Ex: evenNumberEvenIndex(nums) => [2,8,34]
+// Ex: evenNumberEvenIndex(nums) => [2,8,34]
 
-** solve it one time using for loop and another using while loop
-**try more cases by your self
-*/
+// ** solve it one time using for loop and another using while loop
+// **try more cases by your self
+// */
+
+function evenNumberEvenIndex_for(x){
+    let array=[];
+    for (let i=0; i<x.length;i++){
+        if((i%2==0)&&(x[i]%2==0)){
+            array.push(x[i]);
+        }
+    }
+    return array;
+}
+
+
+function evenNumberEvenIndex_while(x){
+    let array=[];
+    let i=0;
+    while (i<x.length){
+        if((i%2==0)&&(x[i]%2==0)){
+            array.push(x[i]);
+        }
+        i++;
+    }
+    return array;
+}
+
+document.write(`<h1>Q22: Create a function called evenNumberEvenIndex:-</h1> <div class="parent"> <li>evenNumberEvenIndex_for(nums):- &nbsp;  ${evenNumberEvenIndex_for(nums)}</li> <li>evenNumberEvenIndex_while(nums):- &nbsp;  ${evenNumberEvenIndex_while(nums)}</li> </div>`);
 

@@ -157,50 +157,33 @@ document.write(`<h1>Q3: Create a function called averageAge:-</h1> <div class="p
 
   let text = "My name is alex mercer class name B baba mama hello Hello HELLO";
 
-  let text_low = text.toLowerCase();
+  // let text_low = text.toLowerCase();
 
-  let words,
-      word = [],
-      repeat = [];
+  function repeatWord(string){
+    let subString=string.toLowerCase().split(' '); 
+    let obj={}; 
+    let count;
+    for(let i=0; i<string.length; i++){
+       let objIndex=obj[subString[i]];
+       if(objIndex){
+           count=objIndex;
+       }
+       else{
+        count =0;
+       }
+        
+       obj[subString[i]] =count +1
+       }
+       return obj;
+}
 
-      words = text_low.split(" ", text_low.length);
+  // console.log(repeatWord(text));
+  console.log("Q6: repeatWord: ");
+  console.log(repeatWord(text));
 
-      console.log("words: " + words);
-
-      function repeatWord(x){
-          for(let i=0; i < x.length-1; i++){
-             word[i] = x[i];
-             repeat[i] = 0;
-             for(let e=1; e < x.length; e++){
-                if(x[i] == x[e]){
-                  repeat[i]++;
-                }
-             }
-          }
-          return (repeat);
-      }
-
-  console.log("Q6: repeatWord: " + repeatWord(words) + " / " + "words: "+ words);
-  document.write(`<h1>Q6: repeatWord:-</h1> <div class="parent"> <li class="wrong"> not finished yet</li> <li>repeatWord: ${repeatWord(words)}</li> <li>words: ${words}</li></div>`);
+  document.write(`<h1>Q6: repeatWord:-</h1> <div class="parent"> <li class="wrong"> See console for more details</li> <li>words: ${text}</li> <li>repeatWord: ${ repeatWord(text)}</li> </div>`);
 
 
-  let unique = [" a"];
-
-  for(let i=0; i < words.length; i++){
-    for(let e=0; e < words.length; e++){
-        if(e == i) continue;
-        if(words[i] == words[e]){
-            // for(let v=e; v < words.length; v++){
-            //     words[v] == words[v+1];
-            //     words.pop();
-            // }
-            console.log("it happen: "+ words[i]);
-        }
-    }
-    
-  }
-
-  console.log("unique: " + words);
 
 
   /*
@@ -215,6 +198,21 @@ document.write(`<h1>Q3: Create a function called averageAge:-</h1> <div class="p
   => { m:2,  a:5, b:2, t2:, e:2, c:1, d:1, o:1}
   */
   
+  function repeatChar(string){
+    let subSting=string.toLowerCase(); // To count Uppercase and Lowercase
+    var obj={}
+    for(let i = 0, length = subSting.length; i < length; i++) {
+        var objIndex = subSting.charAt(i)
+        obj[objIndex] = (isNaN(obj[objIndex]) ? 1 : obj[objIndex] + 1); //Another way to write if statment
+    } 
+    return obj;
+}
+
+document.write(`<h1>Q7: repeatChar:-</h1> <div class="parent"> <li>repeatChar("mamababatetacedo"): ${repeatChar("mamababatetacedo")}</li> </div>`);
+
+console.log("Q7: repeatChar: ");
+console.log(repeatChar("mamababatetacedo"));
+
   
   /*
   9
@@ -225,7 +223,22 @@ document.write(`<h1>Q3: Create a function called averageAge:-</h1> <div class="p
   Ex: selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd'])
   =>  {a: 1, cat: 3}
   */
-  
+
+  function selectFromObject(object,array){
+    let obj={};
+    for(let i=0;i<array.length;i++){
+        if(Object.keys[object[i]]==array[i]){
+            return object[i];
+        }
+    }
+}
+
+
+document.write(`<h1>Q7: selectFromObject:-</h1> <div class="parent"> <li>selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd']): ${selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd'])}</li> </div>`);
+
+console.log("Q8: selectFromObject: ");
+console.log(selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd']));
+
   
   /*
   10

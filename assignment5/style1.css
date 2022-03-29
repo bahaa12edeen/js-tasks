@@ -1,6 +1,17 @@
-th, td {
+th, table {
     border: 1px solid rgb(78, 51, 153);
     margin: 10px;
+    text-align: center;
+    padding: 5px 10px;
+}
+
+table{
+    padding: 0;
+}
+
+td{
+    border: 1px solid rgb(153, 51, 73);
+    padding: 5px 10px;
     text-align: center;
 }
 

@@ -234,7 +234,7 @@ console.log(repeatChar("mamababatetacedo"));
 }
 
 
-document.write(`<h1>Q7: selectFromObject:-</h1> <div class="parent"> <li>selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd']): ${selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd'])}</li> </div>`);
+document.write(`<h1>Q8: selectFromObject:-</h1> <div class="parent"> <li>selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd']): ${selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd'])}</li> </div>`);
 
 console.log("Q8: selectFromObject: ");
 console.log(selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd']));
@@ -250,6 +250,17 @@ console.log(selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd']));
   => ["firstName","Moh","age",24]
   */
   
+  function objectToArray(object){
+    let array=[]
+    for (let i in object){ 
+        array.push(i, object[i]); 
+    }
+    return array;
+}
+document.write(`<h1>Q9: Create a function called objectToArray:-</h1> <div class="parent"> <li>objectToArray({firstName:"Moh",age:24}): ${objectToArray({firstName:"Moh",age:24})}</li> </div>`);
+
+console.log("Q9: ");
+console.log(objectToArray({firstName:"Moh",age:24}));
   
   /*
   11
@@ -261,6 +272,19 @@ console.log(selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd']));
   => {firstName:"Moh",age:24}
   */
   
+  function arrayToObject (array){
+    let obj={};
+    for (let i=0; i<array.length;i++)
+    {   
+      return obj= {[array[i]]:array[i+1], [array[i+2]]:array[i+3]}
+    }
+}
+
+document.write(`<h1>Q10: Create a function called arrayToObject:-</h1> <div class="parent"> <li>arrayToObject(["firstName","Moh","age",24]): ${arrayToObject(["firstName","Moh","age",24])}</li> </div>`);
+
+console.log("Q10: ");
+console.log(arrayToObject(["firstName","Moh","age",24]));
+
   
   /*
   12
@@ -272,7 +296,23 @@ console.log(selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd']));
   Ex: onlyNumber({firstName:"Moh",age:24,movies:[1,5,"string"]})
   => {age:24}
   */
+
+  function onlyNuumber(object){
+    let newObj={};
+    for (let i in object)
+    {
+        if(typeof(object[i])==='number'){
+            newObj=object[i];
+        }
+    }
+    return newObj
+}
   
+document.write(`<h1>Q11: Create a function called onlyNumber:-</h1> <div class="parent"> <li>onlyNuumber({firstName:"Moh",age:24,movies:[1,5,"string"]}): ${onlyNuumber({firstName:"Moh",age:24,movies:[1,5,"string"]})}</li> </div>`);
+
+console.log("Q11: ");
+console.log(onlyNuumber({firstName:"Moh",age:24,movies:[1,5,"string"]}));
+
   
   /*
   13
@@ -285,6 +325,22 @@ console.log(selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd']));
   => {firstName:"Moh"}
   */
   
+  function onlyString(object){
+    let newObj={};
+    for (let i in object)
+    {
+        if(typeof(object[i])==='string'){
+            newObj=object[i];
+        }
+    }
+    return newObj
+}
+
+document.write(`<h1>Q12: Create a function called onlyString:-</h1> <div class="parent"> <li>onlyString({firstName:"Moh",age:24,movies:[1,5,"string"]}): ${onlyString({firstName:"Moh",age:24,movies:[1,5,"string"]})}</li> </div>`);
+
+console.log("Q12: ");
+console.log(onlyString({firstName:"Moh",age:24,movies:[1,5,"string"]}));
+
   
   /*
   14
@@ -297,6 +353,22 @@ console.log(selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd']));
   => {movies:[1,5,"string"]}
   */
   
+  function onlyArray(object){
+    let newObj={};
+    for (let i in object)
+    {
+        if(Array.isArray(object[i])){
+            newObj=object[i];
+        }
+    }
+    return newObj
+}
+
+document.write(`<h1>Q13: Create a function called onlyArray:-</h1> <div class="parent"> <li>onlyArray({firstName:"Moh",age:24,movies:[1,5,"string"]}): ${onlyArray({firstName:"Moh",age:24,movies:[1,5,"string"]})}</li> </div>`);
+
+console.log("Q13: ");
+console.log(onlyArray({firstName:"Moh",age:24,movies:[1,5,"string"]}));
+
   
   /*
   15
@@ -308,3 +380,13 @@ console.log(selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd']));
   => ['firstName', 'age', 'movies']
   
   */
+
+  function keysArray(object){
+    let keys=Object.keys(object)
+    return keys
+}
+
+document.write(`<h1>Q14: Create a function called keysArray:-</h1> <div class="parent"> <li>keysArray({firstName:"Moh",age:24,movies:[1,5,"string"]}): ${keysArray({firstName:"Moh",age:24,movies:[1,5,"string"]})}</li> </div>`);
+
+console.log("Q14: ");
+console.log(keysArray({firstName:"Moh",age:24,movies:[1,5,"string"]}));

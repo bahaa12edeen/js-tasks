@@ -9,7 +9,8 @@ let loca,
     td7,
     image,
     arr=[],
-    lcl=[];
+    lcl=[],
+    fet=[];
 
     window.localStorage.i;
     if(window.localStorage.i == undefined){
@@ -20,8 +21,23 @@ let loca,
 document.getElementById("submit").onclick = function(){
     i = window.localStorage.i;
 
+    console.log("arr--1: "+arr);
+
     if(!(document.getElementById("name").value == "" || document.getElementById("name").value == " ")){
+        
+        console.log("arr-0: "+arr);
+
+        if(localStorage.m_arr != undefined && arr == ""){
+            fet = JSON.parse(localStorage.m_arr);
+            console.log("fet: "+fet);
+            for(let e=0; e < i; e++){
+                arr[e] = fet[e];
+            }
+        }
+        
         arr[i] = [];
+
+        console.log("arr-1: "+arr);
 
         tr = document.createElement("tr");
         td1 = document.createElement("td");
@@ -67,17 +83,18 @@ document.getElementById("submit").onclick = function(){
             arr[i][6] = td7.textContent;
         }
 
+        console.log("arr-2: "+arr);
+
         get();
 
         setTimeout(function(){
             localStorage.setItem("m_arr", JSON.stringify(arr));
 
-            console.log("i: "+i);
-            console.log("arr: "+arr);
-            console.log(localStorage.m_arr);
+            console.log("arr-3: "+arr);
         }, 1000);
 
 
+        console.log("arr-4: "+arr);
         
     
         document.getElementById("table").appendChild(tr);
@@ -140,39 +157,3 @@ function renderOrder(){
         td5.appendChild(image);
     }
 }
-/* 
-function storeInLocalStorage(){
-    let stringArray=JSON.stringify(banana);
-    localStorage.setItem("data",stringArray);
-}
-
-function callFromLocalStorage(){
-    let dataObj=localStorage.getItem("data");
-    // console.log(dataObj,"typeOf dataObj ",typeof dataObj);
-
-    let omar=JSON.parse(dataObj);
-    console.log(omar,"omar");
-    if(omar != null){
-        banana=omar;
-        // renderOrder(); 
-    }
-   renderOrder(); 
-}
-callFromLocalStorage();
-function Coffee(cusName, cupSize, milkType, isHot, drinkType) {
-  this.cusName = cusName;
-  this.cupSize = cupSize;
-  this.milkType = milkType;
-  this.isHot = isHot;
-  this.drinkType = drinkType;
-  this.price = priceCoff(3,15);
-
-  banana.push(this);
-  renderOrder();
-  storeInLocalStorage();
-  console.log(banana);
-}
-function priceCoff(min,max){
-    return Math.floor(Math.random() * (max - min) + min);
-}
-*/
